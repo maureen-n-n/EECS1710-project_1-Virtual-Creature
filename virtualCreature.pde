@@ -1,3 +1,11 @@
+/** Project 1 - Virtual Creature (Maureen Navera)
+----virtualCreature.pde----------------------------------------------------------------------------------------------------------
+    This project allows users to take care of a virtual pet chicken!
+    Follow the directions on the lower half of the screen to see your hatch into a baby chick and grow up
+    into a chicken who can lay its own eggs! 
+---------------------------------------------------------------------------------------------------------------------------------
+**/
+//------Initialize global variables----------------------------------------------------------------------------------------------
 PImage egg, image_current, chick, hungrychick, sleepychick, chicken, hungrychicken, sleepychicken;
 boolean hatching = false;
 boolean status_chicken = false;
@@ -7,11 +15,7 @@ int hatch_progress = -500;
 int food_progress = -500;
 int sleep_progress = -500;
 int num_eggs = 0; 
-
-float x = 100;
-float y = 100;
-float angle1 = 0.0;
-float segLength = 50;
+//-------------------------------------------------------------------------------------------------------------------------------
 
 void setup(){
   // initialize the properties of the environment
@@ -34,8 +38,16 @@ void setup(){
 
 
 void move_image(){
+  /** This function moves the image to follow the mouse cursor
+      source: https://forum.processing.org/one/topic/image-or-animation-to-follow-mouse.html
+  **/
+  float x = 100;
+  float y = 100;
+  float angle1 = 0.0;
+  float segLength = 50;
   float dx = mouseX - x;
   float dy = mouseY - y;
+  
   angle1 = atan2(dy, dx);  
   x = mouseX - (cos(angle1) * segLength);
   y = mouseY - (sin(angle1) * segLength);
@@ -44,6 +56,7 @@ void move_image(){
 
 
 void draw() {
+  /** This function draws everything to the screen **/
   background(#FFE1B9);
   
   // draws the sleep progress bar
